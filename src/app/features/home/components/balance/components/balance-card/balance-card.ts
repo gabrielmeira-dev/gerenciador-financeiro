@@ -6,6 +6,7 @@ type cardType = 'income' | 'outcome' | 'balance';
 enum valueCssClass {
   income = 'income',
   outcome = 'outcome',
+  zero = 'zero',
 } 
 
 @Component({
@@ -26,6 +27,10 @@ export class BalanceCard {
 
     if(this.type() === 'outcome'){
       return valueCssClass.outcome
+    }
+
+    if(this.value() === 0){
+      return valueCssClass.zero
     }
 
     return this.value() > 0 ? valueCssClass.income : valueCssClass.outcome;
