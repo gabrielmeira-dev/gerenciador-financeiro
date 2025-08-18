@@ -5,6 +5,7 @@ import { Transaction } from '../../shared/transaction/interfaces/transaction';
 import { TransactionType } from '../../shared/transaction/enums/transaction-type';
 import { NoTransactions } from "./components/no-transactions/no-transactions";
 import { HttpClient } from '@angular/common/http';
+import { TransactionsService } from '../../shared/transaction/services/transactions';
 
 
 @Component({
@@ -15,18 +16,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Home implements OnInit {
 
-  private httpClient = inject(HttpClient);
+  private transactionsService = inject(TransactionsService);
 
   transactions = signal<Transaction[]>([]);
 
   ngOnInit(): void {
-    this.getTransactions()
+    this.getTransactions();
   }
 
-  private getTransactions(){
-    this.httpClient.get<Transaction[]>('http://localhost:3000/transactions').subscribe(transactions => {
-      this.transactions.set(transactions);
-    })
+  private getTransactions() {
+    this.transactionsService.getAll().subscribe({
+      next: (transactions) => {
+        this.transactions.set(transactions);
+      }
+    });
   }
-
 }
