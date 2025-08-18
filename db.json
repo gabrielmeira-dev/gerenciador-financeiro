@@ -1,6 +1,6 @@
 {
     "transactions": [
-        { "id": 1, "title": "Salário" ,"value": "100", "type": "income"},
+        { "id": 1, "title": "Salário" ,"value": 100, "type": "income"},
         { "id": 2, "title": "VA" ,"value": 50,  "type": "income"},
         { "id": 3, "title": "Roupas" ,"value": 50,  "type": "outcome"},
         { "id": 4, "title": "Aluguel" ,"value": 100,  "type": "outcome"}
