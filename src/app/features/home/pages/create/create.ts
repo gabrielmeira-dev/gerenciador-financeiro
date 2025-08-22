@@ -5,11 +5,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { TransactionType } from '../../../../shared/transaction/enums/transaction-type';
+import { NgxMaskDirective } from 'ngx-mask';
+
 
 
 @Component({
   selector: 'app-create',
-  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatButtonToggleModule],
+  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatButtonToggleModule, NgxMaskDirective],
   templateUrl: './create.html',
   styleUrl: './create.scss'
 })
