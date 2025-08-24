@@ -29,6 +29,18 @@
       "type": "income",
       "value": 3000,
       "id": 5
+    },
+    {
+      "title": "Restaurante Japonês",
+      "type": "outcome",
+      "value": 200,
+      "id": 6
+    },
+    {
+      "title": "Netflix",
+      "type": "outcome",
+      "value": 25,
+      "id": 7
     }
   ]
 }
