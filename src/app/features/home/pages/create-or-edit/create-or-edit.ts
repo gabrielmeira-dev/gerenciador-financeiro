@@ -7,7 +7,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { TransactionType } from '../../../../shared/transaction/enums/transaction-type';
 import { NgxMaskDirective } from 'ngx-mask';
 import { TransactionsService } from '../../../../shared/transaction/services/transactions';
-import { TransactionPayload } from '../../../../shared/transaction/interfaces/transaction';
+import { Transaction, TransactionPayload } from '../../../../shared/transaction/interfaces/transaction';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FeedbackService } from '../../../../shared/feedback/services/feedback';
 
@@ -24,22 +24,25 @@ export class CreateOrEdit {
   private transactionsService = inject(TransactionsService);
   private router = inject(Router);
   private feedbackService = inject(FeedbackService)
- 
 
   readonly transactionType = TransactionType;
 
-  ngOnInit(): void{
-    console.log(this.activatedRoute.snapshot.data)
+  get transaction(): Transaction{
+    return this.activatedRoute.snapshot.data['transaction'];
+  }
+
+  get isEdit(){
+    return Boolean(this.transaction) 
   }
 
     form = new FormGroup({
-      type: new FormControl('', {
+      type: new FormControl(this.transaction?.type ?? '', {
         validators: [Validators.required]
       }),
-      title: new FormControl('', {
+      title: new FormControl(this.transaction?.title ??'', {
         validators: [Validators.required]
       }),
-      value: new FormControl(0, {
+      value: new FormControl(this.transaction?.value ?? 0, {
         validators: [Validators.required]
       }),
     });
@@ -55,11 +58,22 @@ export class CreateOrEdit {
         value: this.form.value.value as number
       }
 
-      this.transactionsService.post(payload).subscribe({
-        next: () => {
-        this.feedbackService.sucess('Transação criada com sucesso!')
-          this.router.navigate(['/'])
-        }
-      })
+      if(this.isEdit){
+        this.transactionsService.put(this.transaction.id, payload).subscribe({
+          next: () => {
+          this.feedbackService.sucess('Transação alterada com sucesso!')
+            this.router.navigate(['/'])
+          }
+        });
+      } else {
+        this.transactionsService.post(payload).subscribe({
+          next: () => {
+          this.feedbackService.sucess('Transação criada com sucesso!')
+            this.router.navigate(['/'])
+          }
+        });
+      }
+
+      
     }
 }
