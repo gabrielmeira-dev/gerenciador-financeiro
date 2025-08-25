@@ -41,6 +41,12 @@
       "type": "outcome",
       "value": 25,
       "id": 7
+    },
+    {
+      "title": "teste",
+      "type": "income",
+      "value": 20,
+      "id": 8
     }
   ]
 }

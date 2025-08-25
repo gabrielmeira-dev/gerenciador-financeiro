@@ -53,8 +53,7 @@ export class Create {
       this.transactionsService.post(payload).subscribe({
         next: () => {
           this.snackBar.open('Transação criada com sucesso!', 'OK', {
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
+            panelClass: 'snack-bar-sucess-feedback'
           })
           this.router.navigate(['/'])
         }
