@@ -8,7 +8,7 @@ import { TransactionType } from '../../../../shared/transaction/enums/transactio
 import { NgxMaskDirective } from 'ngx-mask';
 import { TransactionsService } from '../../../../shared/transaction/services/transactions';
 import { TransactionPayload } from '../../../../shared/transaction/interfaces/transaction';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FeedbackService } from '../../../../shared/feedback/services/feedback';
 
 
@@ -16,17 +16,21 @@ import { FeedbackService } from '../../../../shared/feedback/services/feedback';
 @Component({
   selector: 'app-create',
   imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatButtonToggleModule, NgxMaskDirective],
-  templateUrl: './create.html',
-  styleUrl: './create.scss'
+  templateUrl: './create-or-edit.html',
+  styleUrl: './create-or-edit.scss'
 })
-export class Create {
-
+export class CreateOrEdit {
+  private activatedRoute = inject(ActivatedRoute);
   private transactionsService = inject(TransactionsService);
   private router = inject(Router);
   private feedbackService = inject(FeedbackService)
  
 
-  readonly transactionType = TransactionType
+  readonly transactionType = TransactionType;
+
+  ngOnInit(): void{
+    console.log(this.activatedRoute.snapshot.data)
+  }
 
     form = new FormGroup({
       type: new FormControl('', {
