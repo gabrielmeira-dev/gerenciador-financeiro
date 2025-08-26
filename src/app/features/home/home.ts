@@ -17,8 +17,6 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './home.scss'
 })
 export class Home implements OnInit {
-
-
   private transactionsService = inject(TransactionsService);
   private router = inject(Router)
 
@@ -28,15 +26,21 @@ export class Home implements OnInit {
     this.getTransactions();
   }
 
-  private getTransactions() {
-    this.transactionsService.getAll().subscribe({
-      next: (transactions) => {
-        this.transactions.set(transactions);
-      }
-    });
-  }
-
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id])
+    }
+
+  remove(transaction: Transaction) {
+   this.transactions.update(transactions => {
+    return transactions.filter(item => item.id !== transaction.id)
+   })
+    }
+
+    private getTransactions() {
+      this.transactionsService.getAll().subscribe({
+        next: (transactions) => {
+          this.transactions.set(transactions);
+        }
+      });
     }
 }
