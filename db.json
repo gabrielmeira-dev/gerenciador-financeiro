@@ -59,6 +59,12 @@
       "type": "income",
       "value": 2000,
       "id": 10
+    },
+    {
+      "title": "Ganhei na loteria",
+      "type": "income",
+      "value": 10000.5,
+      "id": 11
     }
   ]
 }
