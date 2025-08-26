@@ -1,28 +1,42 @@
 import { Component, computed, inject, input } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TransactionType } from '../../../../shared/transaction/enums/transaction-type';
 import { NgxMaskDirective } from 'ngx-mask';
 import { TransactionsService } from '../../../../shared/transaction/services/transactions';
-import { Transaction, TransactionPayload } from '../../../../shared/transaction/interfaces/transaction';
+import {
+  Transaction,
+  TransactionPayload,
+} from '../../../../shared/transaction/interfaces/transaction';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FeedbackService } from '../../../../shared/feedback/services/feedback';
-
-
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-create',
-  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatButtonToggleModule, NgxMaskDirective],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    NgxMaskDirective,
+  ],
   templateUrl: './create-or-edit.html',
-  styleUrl: './create-or-edit.scss'
+  styleUrl: './create-or-edit.scss',
 })
 export class CreateOrEdit {
   private transactionsService = inject(TransactionsService);
   private router = inject(Router);
-  private feedbackService = inject(FeedbackService)
+  private feedbackService = inject(FeedbackService);
 
   transaction = input<Transaction>();
 
@@ -30,47 +44,56 @@ export class CreateOrEdit {
 
   isEdit = computed(() => Boolean(this.transaction()));
 
-    form = computed(() => 
+  form = computed(
+    () =>
       new FormGroup({
         type: new FormControl(this.transaction()?.type ?? '', {
-          validators: [Validators.required]
+          validators: [Validators.required],
         }),
-        title: new FormControl(this.transaction()?.title ??'', {
-          validators: [Validators.required]
+        title: new FormControl(this.transaction()?.title ?? '', {
+          validators: [Validators.required],
         }),
         value: new FormControl(this.transaction()?.value ?? 0, {
-          validators: [Validators.required]
+          validators: [Validators.required],
         }),
       })
-    ) 
+  );
 
-    submit(){
-      if(this.form().invalid){
-        return;
-      }
-  
-      const payload: TransactionPayload = {
-        title: this.form().value.title as string,
-        type: this.form().value.type as TransactionType,
-        value: this.form().value.value as number
-      }
-
-      if(this.isEdit()){
-        this.transactionsService.put(this.transaction()!.id, payload).subscribe({
-          next: () => {
-          this.feedbackService.sucess('Transação alterada com sucesso!')
-            this.router.navigate(['/'])
-          }
-        });
-      } else {
-        this.transactionsService.post(payload).subscribe({
-          next: () => {
-          this.feedbackService.sucess('Transação criada com sucesso!')
-            this.router.navigate(['/'])
-          }
-        });
-      }
-
-      
+  submit() {
+    if (this.form().invalid) {
+      return;
     }
+
+    const payload: TransactionPayload = {
+      title: this.form().value.title as string,
+      type: this.form().value.type as TransactionType,
+      value: this.form().value.value as number,
+    };
+
+    this.createOrEdit(payload).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+    });
+  }
+
+  private createOrEdit(payload: TransactionPayload) {
+    if (this.isEdit()) {
+      return this.transactionsService
+        .put(this.transaction()!.id, payload)
+        .pipe(
+          tap(() =>
+            this.feedbackService.sucess('Transação alterada com sucesso!')
+          )
+        );
+    } else {
+      return this.transactionsService
+        .post(payload)
+        .pipe(
+          tap(() =>
+            this.feedbackService.sucess('Transação criada com sucesso!')
+          )
+        );
+    }
+  }
 }
