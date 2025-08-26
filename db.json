@@ -1,76 +1,16 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "title": "Salário",
-      "value": 100,
-      "type": "income"
-    },
-    {
-      "id": 2,
-      "title": "VA",
-      "value": 50,
-      "type": "income"
-    },
-    {
-      "id": 3,
-      "title": "Roupas",
-      "value": 50,
-      "type": "outcome"
-    },
-    {
-      "id": 4,
-      "title": "Aluguel",
-      "value": 100,
-      "type": "outcome"
-    },
-    {
       "title": "Salário ",
       "type": "income",
       "value": 3000,
       "id": 5
     },
     {
-      "title": "Restaurante Japonês",
-      "type": "outcome",
-      "value": 200,
-      "id": 6
-    },
-    {
-      "title": "Netflix",
-      "type": "outcome",
-      "value": 25,
-      "id": 7
-    },
-    {
-      "title": "teste",
-      "type": "income",
-      "value": 20,
-      "id": 8
-    },
-    {
       "title": "ganho",
       "type": "income",
       "value": 500,
       "id": 9
-    },
-    {
-      "title": "Dinheiro da vó ",
-      "type": "income",
-      "value": 2000,
-      "id": 10
-    },
-    {
-      "title": "Ganhei na loteria",
-      "type": "income",
-      "value": 10000.5,
-      "id": 11
-    },
-    {
-      "title": "Pc novo",
-      "type": "outcome",
-      "value": 8000,
-      "id": 12
     }
   ]
 }
