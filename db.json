@@ -3,14 +3,8 @@
     {
       "title": "Salário ",
       "type": "income",
-      "value": 3000,
-      "id": 5
-    },
-    {
-      "title": "ganho",
-      "type": "income",
-      "value": 500,
-      "id": 9
+      "value": 5000,
+      "id": 1
     }
   ]
 }
