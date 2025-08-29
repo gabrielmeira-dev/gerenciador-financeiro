@@ -1,9 +1,9 @@
 {
   "transactions": [
     {
-      "title": "Salário ",
+      "title": "Pix",
       "type": "income",
-      "value": 5000,
+      "value": 100,
       "id": 1
     }
   ]
