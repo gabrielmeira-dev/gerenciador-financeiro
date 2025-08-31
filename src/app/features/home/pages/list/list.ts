@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, linkedSignal, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../../shared/dialog/confirmation/services/confirmation-dialog';
@@ -22,11 +22,9 @@ export class List {
   private router = inject(Router);
   private confirmationDialogService = inject(ConfirmationDialogService);
 
-  transactions = signal<Transaction[]>([]);
+  transactions = input.required<Transaction[]>();
 
-  ngOnInit(): void {
-    this.getTransactions();
-  }
+  items = linkedSignal(() => this.transactions())
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id]);
@@ -48,16 +46,9 @@ export class List {
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
-    this.transactions.update(transactions => {
-      return transactions.filter(item => item.id !== transaction.id);
-    });
+    this.items.update(transactions => 
+       transactions.filter(item => item.id !== transaction.id)
+    );
   }
 
-  private getTransactions() {
-    this.transactionsService.getAll().subscribe({
-      next: (transactions) => {
-        this.transactions.set(transactions);
-      }
-    });
-  }
 }
