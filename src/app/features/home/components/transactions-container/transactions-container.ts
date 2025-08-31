@@ -14,4 +14,5 @@ export class TransactionsContainer {
     transactions = input.required<Transaction[]>();
 
     itemTemplate = contentChild.required<TemplateRef<unknown>>('item');
+    noItemsTemplate = contentChild.required<TemplateRef<unknown>>('noItems');
 }
