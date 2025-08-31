@@ -1,7 +1,8 @@
 import { ResolveFn } from '@angular/router';
-import { Transaction } from '../../../../../shared/transaction/interfaces/transaction';
 import { inject } from '@angular/core';
-import { TransactionsService } from '../../../../../shared/transaction/services/transactions';
+import { TransactionsService } from '@shared/transaction/services/transactions';
+import { Transaction } from '@shared/transaction/interfaces/transaction';
+
 
 export const getTransactionsByIdResolver: ResolveFn<Transaction> = (route, state) => {
   
