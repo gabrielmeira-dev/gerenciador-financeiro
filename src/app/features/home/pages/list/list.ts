@@ -1,23 +1,22 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { Balance } from "./components/balance/balance";
-import { TransactionItem } from "./components/transaction-item/transaction-item";
-import { Transaction } from '../../shared/transaction/interfaces/transaction';
-import { TransactionType } from '../../shared/transaction/enums/transaction-type';
-import { NoTransactions } from "./components/no-transactions/no-transactions";
-import { TransactionsService } from '../../shared/transaction/services/transactions';
+import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Router, RouterLink } from '@angular/router';
-import { FeedbackService } from '../../shared/feedback/services/feedback';
-import { ConfirmationDialogService } from '../../shared/dialog/confirmation/services/confirmation-dialog';
+import { RouterLink, Router } from '@angular/router';
+import { ConfirmationDialogService } from '../../../../shared/dialog/confirmation/services/confirmation-dialog';
+import { FeedbackService } from '../../../../shared/feedback/services/feedback';
+import { Transaction } from '../../../../shared/transaction/interfaces/transaction';
+import { TransactionsService } from '../../../../shared/transaction/services/transactions';
+import { NoTransactions } from './components/no-transactions/no-transactions';
+import { TransactionItem } from './components/transaction-item/transaction-item';
 import { TransactionsContainer } from './components/transactions-container/transactions-container';
+import { Balance } from './components/balance/balance';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-list',
   imports: [Balance, TransactionItem, NoTransactions, MatButtonModule, RouterLink, TransactionsContainer],
-  templateUrl: './home.html',
-  styleUrl: './home.scss'
+  templateUrl: './list.html',
+  styleUrl: './list.scss'
 })
-export class Home implements OnInit {
+export class List {
   private transactionsService = inject(TransactionsService);
   private feedbackService = inject(FeedbackService);
   private router = inject(Router);

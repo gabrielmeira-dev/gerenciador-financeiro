@@ -1,12 +1,12 @@
 import { Routes } from "@angular/router";
-import { Home } from "./home";
 import { CreateOrEdit } from "./pages/create-or-edit/create-or-edit";
 import { getTransactionsByIdResolver } from "./pages/create-or-edit/resolvers/get-transactions-by-id-resolver";
+import { List } from "./pages/list/list";
 
 export default[
     {
         path: '',
-        component: Home
+        component: List
     },
     {
         path: 'create',

@@ -3,7 +3,7 @@
     {
       "title": "Salario novo",
       "type": "income",
-      "value": 6000,
+      "value": 6050,
       "id": 1
     },
     {
@@ -11,6 +11,12 @@
       "type": "outcome",
       "value": 4000,
       "id": 2
+    },
+    {
+      "title": "Teste",
+      "type": "outcome",
+      "value": 300,
+      "id": 3
     }
   ]
 }
