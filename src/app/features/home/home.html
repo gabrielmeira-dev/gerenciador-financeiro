@@ -4,6 +4,12 @@
   <a matButton="filled" routerLink="create">Adicionar transação</a>
 </div>
 
+<app-transactions-container [transactions]="transactions()">
+  <ng-template #item let-item="item">
+    item
+  </ng-template>
+</app-transactions-container>
+
 <div class="transactions">
   @for (item of transactions(); track item) {
   <app-transaction-item class="transaction" [transaction]="item" (edit)="edit($event)" (remove)="remove($event)"></app-transaction-item>

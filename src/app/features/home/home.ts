@@ -9,10 +9,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { FeedbackService } from '../../shared/feedback/services/feedback';
 import { ConfirmationDialogService } from '../../shared/dialog/confirmation/services/confirmation-dialog';
+import { TransactionsContainer } from './components/transactions-container/transactions-container';
 
 @Component({
   selector: 'app-home',
-  imports: [Balance, TransactionItem, NoTransactions, MatButtonModule, RouterLink],
+  imports: [Balance, TransactionItem, NoTransactions, MatButtonModule, RouterLink, TransactionsContainer],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
