@@ -41,8 +41,11 @@ submit() {
 
   this.authService.login(payload).subscribe({
     next: (res) => {
-      this.authTokenStorage.set(res.token)
-      this.router.navigate(['']);
+      this.authTokenStorage.set(res.token);
+      this.authService.getCurrentUser(res.token).subscribe(() => {
+        this.router.navigate(['']);
+      })
+     
     },
     error: (response: HttpErrorResponse) => {
       if(response.status === 401){
