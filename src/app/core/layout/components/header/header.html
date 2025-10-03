@@ -1,6 +1,14 @@
 <header>
-    <mat-toolbar>
+    <mat-toolbar class="toolbar">
+      <div class="toolbar-content">
         <span>Gerenciador Financeiro</span>
         <mat-icon aria-hidden="false" class="icon-header" fontIcon="savings"></mat-icon>
+
+        @if(true){
+          <button matButton="filled" class="toolbar-logout">Sair</button>
+        }
+       
+      </div>
+       
       </mat-toolbar>
 </header>

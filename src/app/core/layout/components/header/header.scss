@@ -1,3 +1,22 @@
-.icon-header{
-    margin-left: 5px;
+.toolbar{
+    display: flex;
+    justify-content: center;
+
+    .toolbar-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 720px;
+
+        .icon-header{
+            margin-left: 5px;
+        }
+
+        .toolbar-logout{
+            margin-left: auto;
+        }
+    }
+
+   
 }
