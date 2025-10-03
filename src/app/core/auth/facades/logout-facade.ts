@@ -8,9 +8,9 @@ import { LoggedInUserStore } from '../stores/logged-in-user-store';
   providedIn: 'root',
 })
 export class LogoutFacade {
-  authService = inject(Auth);
-  authTokenStorage = inject(AuthTokenStorage);
-  loggedInUserStore = inject(LoggedInUserStore);
+  private readonly authService = inject(Auth);
+  private readonly authTokenStorage = inject(AuthTokenStorage);
+  private readonly loggedInUserStore = inject(LoggedInUserStore);
 
   logout() {
     return this.authService.logout().pipe(
