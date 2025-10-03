@@ -31,6 +31,10 @@ export class Auth {
     }),);
   }
 
+  logout(){
+    return of({});
+  }
+
   getCurrentUser(token: string): Observable<User>{
     return of({
       username : 'admin'

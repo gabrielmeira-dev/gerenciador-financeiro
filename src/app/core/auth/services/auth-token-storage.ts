@@ -21,4 +21,8 @@ export class AuthTokenStorage {
    return this.localStroageToken.getItem(this.key)
   }
 
+  remove(): void{
+    return this.localStroageToken.removeItem(this.key)
+   }
+
 }
