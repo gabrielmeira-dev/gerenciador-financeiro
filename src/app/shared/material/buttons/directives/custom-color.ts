@@ -16,7 +16,6 @@ export class CustomColor {
       if(this.color()){
         this.renderer2.addClass(this.elementRef.nativeElement, `btn-${this.color()}`)
       }
-      this.color()
     });
   }
 
