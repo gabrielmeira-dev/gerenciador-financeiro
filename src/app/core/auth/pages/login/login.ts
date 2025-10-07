@@ -13,10 +13,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { UserCredentials } from '../../interfaces/user-credentials';
 import { LoginFacade } from '../../facades/login-facade';
 import { FullWidth } from "@shared/material/form-field/directives/full-width";
+import { MarginBottom } from "@shared/material/form-field/directives/margin-bottom";
 
 @Component({
   selector: 'app-login',
-  imports: [MatInputModule, ReactiveFormsModule, MatButtonModule, FullWidth],
+  imports: [MatInputModule, ReactiveFormsModule, MatButtonModule, FullWidth, MarginBottom],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
