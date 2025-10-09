@@ -18,6 +18,7 @@ import { FeedbackService } from '@shared/feedback/services/feedback';
 import { Transaction, TransactionPayload } from '@shared/transaction/interfaces/transaction';
 import { FullWidth } from '@shared/material/form-field/directives/full-width';
 import { MarginBottom } from '@shared/material/form-field/directives/margin-bottom';
+import { CustomFormField } from '@shared/material/form-field/directives/custom-form-field';
 
 @Component({
   selector: 'app-create',
@@ -28,8 +29,7 @@ import { MarginBottom } from '@shared/material/form-field/directives/margin-bott
     MatButtonModule,
     MatButtonToggleModule,
     NgxMaskDirective,
-    FullWidth,
-    MarginBottom
+   CustomFormField
   ],
   templateUrl: './create-or-edit.html',
   styleUrl: './create-or-edit.scss',

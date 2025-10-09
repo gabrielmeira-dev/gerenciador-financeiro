@@ -14,10 +14,11 @@ import { UserCredentials } from '../../interfaces/user-credentials';
 import { LoginFacade } from '../../facades/login-facade';
 import { FullWidth } from "@shared/material/form-field/directives/full-width";
 import { MarginBottom } from "@shared/material/form-field/directives/margin-bottom";
+import { CustomFormField } from '@shared/material/form-field/directives/custom-form-field';
 
 @Component({
   selector: 'app-login',
-  imports: [MatInputModule, ReactiveFormsModule, MatButtonModule, FullWidth, MarginBottom],
+  imports: [MatInputModule, ReactiveFormsModule, MatButtonModule, CustomFormField],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
