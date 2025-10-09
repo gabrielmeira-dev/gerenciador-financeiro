@@ -4,10 +4,11 @@ import {MatCardModule} from '@angular/material/card'
 import { Transaction } from '../../../../../../shared/transaction/interfaces/transaction';
 import { TransactionValue } from './components/transaction-value/transaction-value';
 import { CustomColor } from '@shared/material/buttons/directives/custom-color';
+import { IsIncome } from './directives/is-income';
 
 @Component({
   selector: 'app-transaction-item',
-  imports: [MatCardModule, MatButtonModule, TransactionValue, CustomColor],
+  imports: [MatCardModule, MatButtonModule, TransactionValue, CustomColor, IsIncome],
   templateUrl: './transaction-item.html',
   styleUrl: './transaction-item.scss'
 })
