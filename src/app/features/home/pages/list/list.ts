@@ -9,7 +9,7 @@ import { TransactionsService } from '@shared/transaction/services/transactions';
 import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/confirmation-dialog';
 import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
-import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
+// import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
   selector: 'app-list',
@@ -20,7 +20,7 @@ import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
     MatButtonModule,
     RouterLink,
     TransactionsContainer,
-    CustomKeyvaluePipe,
+    //CustomKeyvaluePipe,
   ],
   templateUrl: './list.html',
   styleUrl: './list.scss',
