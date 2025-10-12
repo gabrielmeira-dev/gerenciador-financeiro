@@ -9,10 +9,11 @@ import { TransactionsService } from '@shared/transaction/services/transactions';
 import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/confirmation-dialog';
 import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
+import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
   selector: 'app-list',
-  imports: [Balance, TransactionItem, NoTransactions, MatButtonModule, RouterLink, TransactionsContainer],
+  imports: [Balance, TransactionItem, NoTransactions, MatButtonModule, RouterLink, TransactionsContainer, CustomKeyvaluePipe],
   templateUrl: './list.html',
   styleUrl: './list.scss'
 })
@@ -21,6 +22,20 @@ export class List {
   private feedbackService = inject(FeedbackService);
   private router = inject(Router);
   private confirmationDialogService = inject(ConfirmationDialogService);
+
+  object = signal({
+    name: 'Gabriel',
+    age: 18,
+    job: 'Sim'
+  })
+
+  addProp(){
+    this.object.update((value: any) => {
+      value['hairColor'] = 'Black'
+
+      return value
+    })
+  }
 
   transactions = input.required<Transaction[]>();
 
