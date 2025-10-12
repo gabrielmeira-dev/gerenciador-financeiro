@@ -13,9 +13,17 @@ import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
   selector: 'app-list',
-  imports: [Balance, TransactionItem, NoTransactions, MatButtonModule, RouterLink, TransactionsContainer, CustomKeyvaluePipe],
+  imports: [
+    Balance,
+    TransactionItem,
+    NoTransactions,
+    MatButtonModule,
+    RouterLink,
+    TransactionsContainer,
+    CustomKeyvaluePipe,
+  ],
   templateUrl: './list.html',
-  styleUrl: './list.scss'
+  styleUrl: './list.scss',
 })
 export class List {
   private transactionsService = inject(TransactionsService);
@@ -23,7 +31,8 @@ export class List {
   private router = inject(Router);
   private confirmationDialogService = inject(ConfirmationDialogService);
 
-  object = signal({
+  /*
+object = signal({
     name: 'Gabriel',
     age: 18,
     job: 'Sim'
@@ -36,34 +45,37 @@ export class List {
       return value
     })
   }
+*/
 
   transactions = input.required<Transaction[]>();
 
-  items = linkedSignal(() => this.transactions())
+  items = linkedSignal(() => this.transactions());
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id]);
   }
 
   remove(transaction: Transaction) {
-    this.confirmationDialogService.open({
-      title: 'Deletar transação', message: 'Você realmente deseja deletar a transação?'
-    }).subscribe({
-      next: () => {
-        this.transactionsService.delete(transaction.id).subscribe({
-          next: () => {
-            this.removeTransactionFromArray(transaction);
-            this.feedbackService.sucess('Transação removida com sucesso');
-          }
-        });
-      }
-    });
+    this.confirmationDialogService
+      .open({
+        title: 'Deletar transação',
+        message: 'Você realmente deseja deletar a transação?',
+      })
+      .subscribe({
+        next: () => {
+          this.transactionsService.delete(transaction.id).subscribe({
+            next: () => {
+              this.removeTransactionFromArray(transaction);
+              this.feedbackService.sucess('Transação removida com sucesso');
+            },
+          });
+        },
+      });
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
-    this.items.update(transactions => 
-       transactions.filter(item => item.id !== transaction.id)
+    this.items.update((transactions) =>
+      transactions.filter((item) => item.id !== transaction.id)
     );
   }
-
 }
