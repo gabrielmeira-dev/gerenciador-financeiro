@@ -1,6 +1,6 @@
 import { Directive, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { LogoutFacade } from '../../../../auth/facades/logout-facade';
+import { LogoutFacade } from '@core/auth/facades/logout-facade';
 
 @Directive({
   selector: '[appLogout]',
