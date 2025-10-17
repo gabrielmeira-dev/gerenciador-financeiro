@@ -12,4 +12,8 @@ export class SidenavVisibilityStore {
   toggle(){
     this.state.update(state => !state);
   }
+
+  close(){
+    this.state.set(false);
+  }
 }

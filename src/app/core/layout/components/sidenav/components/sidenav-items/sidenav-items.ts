@@ -3,6 +3,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Logout } from './directives/logout';
 import { LoggedInUserStore } from '@core/auth/stores/logged-in-user-store';
+import { SidenavVisibilityStore } from '@core/layout/stores/sidenav-visibility';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { LoggedInUserStore } from '@core/auth/stores/logged-in-user-store';
 })
 export class SidenavItems {
   private readonly loggedInUserStore = inject(LoggedInUserStore);
+  private readonly sidenavVisibilityStore = inject(SidenavVisibilityStore);
 
   isLoggedIn = computed(() => this.loggedInUserStore.isLoggedIn())
     
@@ -23,5 +25,9 @@ export class SidenavItems {
       url: '/'
     }
   ]);
+
+  closeSidenav(){
+    this.sidenavVisibilityStore.close()
+  }
 
 }
