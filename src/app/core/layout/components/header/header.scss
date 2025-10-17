@@ -2,22 +2,21 @@
 
 .toolbar{
     display: flex;
-    justify-content: center;
+
+    .menu-icon{
+        color: var(--mat-sys-on-primary);
+    }
 
     .toolbar-content{
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        max-width: vars.$content-width;
 
         .icon-header{
             margin-left: 5px;
         }
 
-        .toolbar-logout{
-            margin-left: auto;
-        }
     }
 
    
