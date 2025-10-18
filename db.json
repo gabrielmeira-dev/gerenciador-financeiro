@@ -7,9 +7,15 @@
       "id": 1
     },
     {
-      "title": "Teste",
+      "title": "Alugel",
       "type": "outcome",
-      "value": 300,
+      "value": 2000,
+      "id": 2
+    },
+    {
+      "title": "Agua",
+      "type": "outcome",
+      "value": 50,
       "id": 3
     }
   ]
