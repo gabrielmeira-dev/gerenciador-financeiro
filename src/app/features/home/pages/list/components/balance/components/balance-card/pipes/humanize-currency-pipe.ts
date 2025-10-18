@@ -23,7 +23,7 @@ export class HumanizeCurrencyPipe implements PipeTransform {
       this.getCurrencySymbol()
     );
 
-    const splittedValue = formattedValue.split('.');
+    const splittedValue = formattedValue.split('.');  
 
     if (splittedValue.length === 1) {
       return splittedValue[0];
