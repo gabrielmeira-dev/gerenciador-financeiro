@@ -15,15 +15,12 @@ Este projeto visa permitir que o usuário registre seus **gastos** e **receitas*
 
 ## 📥 Instalação
 
-1. Clone o repositório  
-   git clone https://github.com/gabrielmeira-dev/gerenciador-financeiro.git
+1. Clone o repositório-> git clone https://github.com/gabrielmeira-dev/gerenciador-financeiro.git
 
-2. Entre na pasta do projeto
-cd gerenciador-financeiro
+2. Entre na pasta do projeto -> cd gerenciador-financeiro
 
 
-3. Instale as dependências
-npm install
+3. Instale as dependências -> npm install
 
 
 ## ▶️ Como usar / Desenvolvimento
@@ -66,14 +63,11 @@ Contribuições são bem-vindas! Siga estes passos:
 
 1. Faça um fork do projeto
 
-2. Crie uma branch para sua feature ou correção
-git checkout -b feature/nova-feature
+2. Crie uma branch para sua feature ou correção (git checkout -b feature/nova-feature)
 
-3. Faça os commits com mensagens claras
-git commit -m "Adiciona funcionalidade X"
+3. Faça os commits com mensagens claras (git commit -m "Adiciona funcionalidade X")
 
-4. Empurre sua branch para o repositório remoto
-git push origin feature/nova-feature
+4. Empurre sua branch para o repositório remoto (git push origin feature/nova-feature)
 
 5. Abra um Pull Request para revisão
 
