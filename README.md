@@ -41,15 +41,17 @@ Os arquivos compilados serão gerados na pasta dist/ por padrão.
 
 ## 🗂 Estrutura de pastas
 
-src/
-  app/
-    core/
-    features/
-    shared/
-    app.ts
-  styles/
-  index.html
-
+```
+│
+├─ app/
+│  ├─ core/
+│  ├─ features/
+│  ├─ shared/
+│  └─ app.ts
+│
+├─ styles/
+└─ index.html
+```
 
 ## 🧩 Funcionalidades principais
 Registrar receitas (ganhos)
