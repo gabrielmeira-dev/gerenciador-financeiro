@@ -26,20 +26,20 @@ cd gerenciador-financeiro
 npm install
 
 
-▶️ Como usar / Desenvolvimento
+## ▶️ Como usar / Desenvolvimento
 Para rodar em modo de desenvolvimento, com atualização automática:
 
 ng serve
 
 Depois, abra seu navegador e acesse http://localhost:4200/
 
-📦 Build para produção
+## 📦 Build para produção
 Gerar versão de produção (otimizada):
 
 ng build
 Os arquivos compilados serão gerados na pasta dist/ por padrão.
 
-🗂 Estrutura de pastas
+## 🗂 Estrutura de pastas
 
 src/
  ┣ app/
@@ -50,13 +50,13 @@ src/
  ┣ styles/
  ┗ index.html
 
-🧩 Funcionalidades principais
+## 🧩 Funcionalidades principais
 Registrar receitas (ganhos)
 Registrar despesas (gastos)
 Visualizar saldo atual
 Mock de back-end local via db.json
 
-🤝 Como contribuir
+## 🤝 Como contribuir
 Contribuições são bem-vindas! Siga estes passos:
 
 1. Faça um fork do projeto
@@ -72,5 +72,5 @@ git push origin feature/nova-feature
 
 5. Abra um Pull Request para revisão
 
-📄 Licença
+## 📄 Licença
 Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
