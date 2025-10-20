@@ -50,6 +50,7 @@ src/
  ┣ styles/
  ┗ index.html
 
+
 ## 🧩 Funcionalidades principais
 Registrar receitas (ganhos)
 Registrar despesas (gastos)
