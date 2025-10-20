@@ -53,10 +53,10 @@ src/
 ```
 
 ## 🧩 Funcionalidades principais
-Registrar receitas (ganhos)
-Registrar despesas (gastos)
-Visualizar saldo atual
-Mock de back-end local via db.json
+- Registrar receitas (ganhos)
+- Registrar despesas (gastos)
+- Visualizar saldo atual
+- Mock de back-end local via db.json
 
 ## 🤝 Como contribuir
 Contribuições são bem-vindas! Siga estes passos:
