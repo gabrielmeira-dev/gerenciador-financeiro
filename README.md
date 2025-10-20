@@ -1,59 +1,76 @@
-# GerenciadorFinanceiro
+# Gerenciador-Financeiro
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+Uma aplicação web desenvolvida em Angular para controlar gastos e ganhos pessoais, oferecendo uma forma simples de acompanhar suas finanças.
 
-## Development server
+## 🚀 Visão Geral
 
-To start a local development server, run:
+Este projeto visa permitir que o usuário registre seus **gastos** e **receitas**, visualize o saldo, filtre por períodos e tenha uma visão mais organizada de suas finanças pessoais.
 
-```bash
+## 🛠 Tecnologias utilizadas
+
+- Angular (gerado com a versão 20.0.4) 
+- TypeScript  
+- SCSS / HTML  
+- JSON-file (`db.json`) para mock/back-end local
+
+## 📥 Instalação
+
+1. Clone o repositório  
+   git clone https://github.com/gabrielmeira-dev/gerenciador-financeiro.git
+
+2. Entre na pasta do projeto
+cd gerenciador-financeiro
+
+
+3. Instale as dependências
+npm install
+
+
+▶️ Como usar / Desenvolvimento
+Para rodar em modo de desenvolvimento, com atualização automática:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Depois, abra seu navegador e acesse http://localhost:4200/
 
-## Code scaffolding
+📦 Build para produção
+Gerar versão de produção (otimizada):
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
 ng build
-```
+Os arquivos compilados serão gerados na pasta dist/ por padrão.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+🗂 Estrutura de pastas
 
-## Running unit tests
+src/
+ ┣ app/
+ ┃ ┣ core/
+ ┃ ┣ features/
+ ┃ ┣ shared/
+ ┃ ┗ app.ts
+ ┣ styles/
+ ┗ index.html
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+🧩 Funcionalidades principais
+Registrar receitas (ganhos)
+Registrar despesas (gastos)
+Visualizar saldo atual
+Mock de back-end local via db.json
 
-```bash
-ng test
-```
+🤝 Como contribuir
+Contribuições são bem-vindas! Siga estes passos:
 
-## Running end-to-end tests
+1. Faça um fork do projeto
 
-For end-to-end (e2e) testing, run:
+2. Crie uma branch para sua feature ou correção
+git checkout -b feature/nova-feature
 
-```bash
-ng e2e
-```
+3. Faça os commits com mensagens claras
+git commit -m "Adiciona funcionalidade X"
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+4. Empurre sua branch para o repositório remoto
+git push origin feature/nova-feature
 
-## Additional Resources
+5. Abra um Pull Request para revisão
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+📄 Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.

@@ -17,6 +17,12 @@
       "type": "outcome",
       "value": 50,
       "id": 3
+    },
+    {
+      "title": "Comida",
+      "type": "outcome",
+      "value": 50,
+      "id": 4
     }
   ]
 }
