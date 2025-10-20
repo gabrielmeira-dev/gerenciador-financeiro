@@ -42,6 +42,7 @@ Os arquivos compilados serão gerados na pasta dist/ por padrão.
 ## 🗂 Estrutura de pastas
 
 ```
+src/
 │
 ├─ app/
 │  ├─ core/
@@ -51,6 +52,7 @@ Os arquivos compilados serão gerados na pasta dist/ por padrão.
 │
 ├─ styles/
 └─ index.html
+
 ```
 
 ## 🧩 Funcionalidades principais
