@@ -1,9 +1,9 @@
 {
   "transactions": [
     {
-      "title": "Salario novo",
+      "title": "Salario novo 2",
       "type": "income",
-      "value": 6050,
+      "value": 6055,
       "id": 1
     },
     {
@@ -23,6 +23,12 @@
       "type": "outcome",
       "value": 50,
       "id": 4
+    },
+    {
+      "title": "investimentos",
+      "type": "income",
+      "value": 50,
+      "id": 5
     }
   ]
 }

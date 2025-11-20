@@ -23,6 +23,10 @@ export class SidenavItems {
     {
       label: 'Home',
       url: '/'
+    },
+    {
+      label: 'Transações',
+      url: '/transactions'
     }
   ]);
 
