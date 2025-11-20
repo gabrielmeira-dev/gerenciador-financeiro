@@ -8,6 +8,7 @@ import { TransactionsService } from '@shared/transaction/services/transactions';
 import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/confirmation-dialog';
 import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
+import { Search } from './components/search/search';
 // import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
@@ -18,6 +19,7 @@ import { FeedbackService } from '@shared/feedback/services/feedback';
     MatButtonModule,
     RouterLink,
     TransactionsContainer,
+    Search
     //CustomKeyvaluePipe,
   ],
   templateUrl: './list.html',

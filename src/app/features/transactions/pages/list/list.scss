@@ -11,10 +11,29 @@
 
 .actions {
     display: flex;
+    flex-direction: column;
     margin: 24px 0;
-    justify-content: center;
+    align-items: center;
+
+    .search{
+        order: 2;
+    }
+
+    .add-transaction{
+        order: 1;
+        margin-bottom: 24px;
+    }
 
     @include mq.media-query(sm){
-        justify-content: flex-end;
+        flex-direction: row;
+
+        .search {
+            order: 1;
+        }
+
+        .add-transaction {
+            order: 2;
+            margin-left: auto;
+        }
     }
 }
