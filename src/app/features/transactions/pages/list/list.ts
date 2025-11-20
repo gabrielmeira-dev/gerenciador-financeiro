@@ -4,7 +4,6 @@ import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 import { NoTransactions } from './components/no-transactions/no-transactions';
 import { TransactionItem } from './components/transaction-item/transaction-item';
 import { TransactionsContainer } from './components/transactions-container/transactions-container';
-import { Balance } from './components/balance/balance';
 import { TransactionsService } from '@shared/transaction/services/transactions';
 import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/confirmation-dialog';
 import { Transaction } from '@shared/transaction/interfaces/transaction';
@@ -14,7 +13,6 @@ import { FeedbackService } from '@shared/feedback/services/feedback';
 @Component({
   selector: 'app-list',
   imports: [
-    Balance,
     TransactionItem,
     NoTransactions,
     MatButtonModule,

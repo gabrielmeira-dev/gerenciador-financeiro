@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { Transaction } from '../../../../../../shared/transaction/interfaces/transaction';
+import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { BalanceCard } from './components/balance-card/balance-card';
 
 
