@@ -1,4 +1,4 @@
-import { Component, inject, input, linkedSignal, signal } from '@angular/core';
+import { Component, inject, input, linkedSignal, resource, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 import { NoTransactions } from './components/no-transactions/no-transactions';
@@ -9,6 +9,7 @@ import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/
 import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
 import { Search } from './components/search/search';
+import { firstValueFrom } from 'rxjs';
 // import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
@@ -48,11 +49,23 @@ object = signal({
   }
 */
 
-  transactions = input.required<Transaction[]>();
+  // transactions = input.required<Transaction[]>();
 
-  items = linkedSignal(() => this.transactions());
+  // items = linkedSignal(() => this.transactions());
 
   searchTerm = signal('');
+
+  resourceRef = resource({
+    params: () => {
+      return {
+       searchTerm: this.searchTerm()
+      }
+    },
+    loader: ({ params: {searchTerm} }) => {
+      return firstValueFrom(this.transactionsService.getAll(searchTerm)); 
+    },
+    defaultValue: []
+  })
 
   edit(transaction: Transaction) {
     this.router.navigate(['edit', transaction.id], { relativeTo: this.activatedRoute  });
@@ -77,8 +90,8 @@ object = signal({
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
-    this.items.update((transactions) =>
-      transactions.filter((item) => item.id !== transaction.id)
+    this.resourceRef.update((transactions) =>
+      transactions.filter((item) => item.id !== transaction.id)!
     );
   }
 }
