@@ -10,6 +10,7 @@ import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
 import { Search } from './components/search/search';
 import { firstValueFrom } from 'rxjs';
+import { rxResource } from '@angular/core/rxjs-interop';
 // import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
@@ -55,14 +56,14 @@ object = signal({
 
   searchTerm = signal('');
 
-  resourceRef = resource({
+  resourceRef = rxResource({
     params: () => {
       return {
        searchTerm: this.searchTerm()
       }
     },
-    loader: ({ params: {searchTerm} }) => {
-      return firstValueFrom(this.transactionsService.getAll(searchTerm)); 
+    stream: ({ params: {searchTerm} }) => {
+      return this.transactionsService.getAll(searchTerm); 
     },
     defaultValue: []
   })
