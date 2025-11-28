@@ -1,4 +1,4 @@
-import { Component, inject, input, linkedSignal, resource, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 import { NoTransactions } from './components/no-transactions/no-transactions';
@@ -9,9 +9,6 @@ import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/
 import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
 import { Search } from './components/search/search';
-import { firstValueFrom } from 'rxjs';
-import { rxResource } from '@angular/core/rxjs-interop';
-// import { CustomKeyvaluePipe } from './pipes/custom-keyvalue-pipe';
 
 @Component({
   selector: 'app-list',
@@ -21,8 +18,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
     MatButtonModule,
     RouterLink,
     TransactionsContainer,
-    Search
-    //CustomKeyvaluePipe,
+    Search,
   ],
   templateUrl: './list.html',
   styleUrl: './list.scss',
@@ -34,42 +30,16 @@ export class List {
   private confirmationDialogService = inject(ConfirmationDialogService);
   private activatedRoute = inject(ActivatedRoute);
 
-  /*
-object = signal({
-    name: 'Gabriel',
-    age: 18,
-    job: 'Sim'
-  })
-
-  addProp(){
-    this.object.update((value: any) => {
-      value['hairColor'] = 'Black'
-
-      return value
-    })
-  }
-*/
-
-  // transactions = input.required<Transaction[]>();
-
-  // items = linkedSignal(() => this.transactions());
-
   searchTerm = signal('');
 
-  resourceRef = rxResource({
-    params: () => {
-      return {
-       searchTerm: this.searchTerm()
-      }
-    },
-    stream: ({ params: {searchTerm} }) => {
-      return this.transactionsService.getAll(searchTerm); 
-    },
-    defaultValue: []
-  })
+  resourceRef = this.transactionsService.getAllWithHttpResource(
+    this.searchTerm
+  );
 
   edit(transaction: Transaction) {
-    this.router.navigate(['edit', transaction.id], { relativeTo: this.activatedRoute  });
+    this.router.navigate(['edit', transaction.id], {
+      relativeTo: this.activatedRoute,
+    });
   }
 
   remove(transaction: Transaction) {
@@ -91,8 +61,9 @@ object = signal({
   }
 
   private removeTransactionFromArray(transaction: Transaction) {
-    this.resourceRef.update((transactions) =>
-      transactions.filter((item) => item.id !== transaction.id)!
+    this.resourceRef.update(
+      (transactions) =>
+        transactions.filter((item) => item.id !== transaction.id)!
     );
   }
 }
