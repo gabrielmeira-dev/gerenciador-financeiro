@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 import { NoTransactions } from './components/no-transactions/no-transactions';
@@ -9,6 +9,13 @@ import { ConfirmationDialogService } from '@shared/dialog/confirmation/services/
 import { Transaction } from '@shared/transaction/interfaces/transaction';
 import { FeedbackService } from '@shared/feedback/services/feedback';
 import { Search } from './components/search/search';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { debounceTime } from 'rxjs';
+
+function typeDelay(signal: Signal<string>){
+ const observable = toObservable(signal).pipe(debounceTime(500));
+ return toSignal(observable, { initialValue: '' });
+}
 
 @Component({
   selector: 'app-list',
@@ -33,7 +40,7 @@ export class List {
   searchTerm = signal('');
 
   resourceRef = this.transactionsService.getAllWithHttpResource(
-    this.searchTerm
+   typeDelay(this.searchTerm), 
   );
 
   edit(transaction: Transaction) {
