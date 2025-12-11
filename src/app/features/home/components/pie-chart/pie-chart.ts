@@ -12,7 +12,7 @@ import { PieChartConfig } from './pie-chart-config.interface';
 @Component({
   selector: 'app-pie-chart',
   imports: [],
-  template: ` <canvas #canvas></canvas> `,
+  template: ` <canvas #canvas style="margin-top: 16px;"></canvas> `,
 })
 export class PieChart {
   canvasEl = viewChild.required<ElementRef>('canvas');

@@ -1,7 +1,9 @@
 <app-balance [transactions]="transactions()"></app-balance>
 
-@defer () {
+@defer (on interaction) {
     <app-pie-chart [config]="chartConfig()"></app-pie-chart>
+} @loading  (minimum 1s){
+    <mat-progress-bar mode="indeterminate" style="margin-top: 16px;"></mat-progress-bar>
 } @placeholder (minimum 1s) {
-    <p>Aqui é um placeholder</p>
+    <button matButton="filled" class="defer-button">Clique aqui</button>
 }
