@@ -18,7 +18,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 export class Home {
   transactions = input.required<Transaction[]>();
 
-
   totalIncomes = computed(() => {
     return sumTransactions(this.transactions(), TransactionType.INCOME)
    });
