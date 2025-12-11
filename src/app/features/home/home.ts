@@ -7,11 +7,13 @@ import { TransactionType } from '@shared/transaction/enums/transaction-type';
 import { sumTransactions } from '@shared/functions/sum-transactions';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-home',
-  imports: [Balance, PieChart, MatButtonModule, MatProgressBarModule],
+  imports: [Balance, PieChart, MatButtonModule, MatProgressBarModule, MatCardModule, MatIconModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

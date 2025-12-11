@@ -1,11 +1,27 @@
 <app-balance [transactions]="transactions()"></app-balance>
 
-@defer (on interaction) {
-    <app-pie-chart [config]="chartConfig()"></app-pie-chart>
-} @loading  (minimum 1s){
-    <mat-progress-bar mode="indeterminate" style="margin-top: 16px;"></mat-progress-bar>
-} @placeholder (minimum 1s) {
-    <button matButton="filled" class="defer-button">Clique aqui</button>
-} @error {
-    <p>Erro ao carregar o componente</p>
-}
+<div class="chart-container">
+  @defer (on interaction) {
+  <mat-card class="card">
+    <app-pie-chart
+      app-pie-chart
+      app-pie-chart
+      [config]="chartConfig()"
+    ></app-pie-chart>
+  </mat-card>
+  } @loading (minimum 1s){
+  <mat-card class="card">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </mat-card>
+
+  } @placeholder (minimum 1s) {
+  <mat-card class="card">
+    <button matButton="filled">Clique aqui</button>
+  </mat-card>
+  } @error {
+  <mat-card class="card">
+    <mat-icon>error</mat-icon>
+    O componente não foi carregado corretamente! Verifique a sua conexão de internet e recarregue essa página.
+  </mat-card>
+  }
+</div>
