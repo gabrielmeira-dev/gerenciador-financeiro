@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -33,6 +33,7 @@ import { CustomFormField } from '@shared/material/form-field/directives/custom-f
   ],
   templateUrl: './create-or-edit.html',
   styleUrl: './create-or-edit.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateOrEdit {
   private transactionsService = inject(TransactionsService);

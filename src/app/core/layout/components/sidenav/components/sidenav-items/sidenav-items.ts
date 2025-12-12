@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Logout } from './directives/logout';
@@ -10,7 +10,8 @@ import { SidenavVisibilityStore } from '@core/layout/stores/sidenav-visibility';
   selector: 'app-sidenav-items',
   imports: [RouterLink, RouterLinkActive, MatListModule, Logout],
   templateUrl: './sidenav-items.html',
-  styleUrl: './sidenav-items.scss'
+  styleUrl: './sidenav-items.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavItems {
   private readonly loggedInUserStore = inject(LoggedInUserStore);

@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   effect,
@@ -13,6 +14,7 @@ import { PieChartConfig } from './pie-chart-config.interface';
   selector: 'app-pie-chart',
   imports: [],
   template: ` <canvas #canvas></canvas> `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PieChart {
   canvasEl = viewChild.required<ElementRef>('canvas');

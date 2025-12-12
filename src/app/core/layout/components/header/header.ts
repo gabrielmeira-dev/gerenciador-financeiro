@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToggleSidenavVisibility } from './toggle-sidenav-visibility/toggle-sidenav-visibility';
@@ -7,7 +7,8 @@ import { ToggleSidenavVisibility } from './toggle-sidenav-visibility/toggle-side
   selector: 'app-header',
   imports: [MatToolbarModule, MatIconModule, ToggleSidenavVisibility],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrl: './header.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Header {
 

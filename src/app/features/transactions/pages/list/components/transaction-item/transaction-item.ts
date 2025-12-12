@@ -1,4 +1,4 @@
-import { Component, input, output, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card'
 import { Transaction } from '../../../../../../shared/transaction/interfaces/transaction';
@@ -11,7 +11,8 @@ import { MatChipsModule } from '@angular/material/chips';
   selector: 'app-transaction-item',
   imports: [MatCardModule, MatButtonModule, TransactionValue, CustomColor, IsIncome, MatChipsModule],
   templateUrl: './transaction-item.html',
-  styleUrl: './transaction-item.scss'
+  styleUrl: './transaction-item.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TransactionItem {
 

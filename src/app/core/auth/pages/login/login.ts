@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy ,Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -21,6 +21,7 @@ import { CustomFormField } from '@shared/material/form-field/directives/custom-f
   imports: [MatInputModule, ReactiveFormsModule, MatButtonModule, CustomFormField],
   templateUrl: './login.html',
   styleUrl: './login.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Login {
   authService = inject(Auth);

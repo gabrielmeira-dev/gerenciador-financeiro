@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavItems } from './components/sidenav-items/sidenav-items';
 import { MobileLayout } from '@core/layout/services/mobile-layout';
@@ -9,7 +9,8 @@ import { SidenavVisibilityStore } from '@core/layout/stores/sidenav-visibility';
   selector: 'app-sidenav',
   imports: [MatSidenavModule, SidenavItems],
   templateUrl: './sidenav.html',
-  styleUrl: './sidenav.scss'
+  styleUrl: './sidenav.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Sidenav {
 

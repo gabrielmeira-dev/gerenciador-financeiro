@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 type cardType = 'income' | 'outcome' | 'balance';
@@ -14,7 +14,8 @@ enum valueCssClass {
   selector: 'app-balance-card',
   imports: [MatCardModule, CurrencyPipe],
   templateUrl: './balance-card.html',
-  styleUrl: './balance-card.scss'
+  styleUrl: './balance-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BalanceCard {
   type = input.required<cardType>();
