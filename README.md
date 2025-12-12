@@ -12,6 +12,9 @@ Este projeto visa permitir que o usuário registre seus **gastos** e **receitas*
 - TypeScript  
 - SCSS / HTML  
 - JSON-file (`db.json`) para mock/back-end local
+- Defer Block
+- Zoneless
+- Resource API
 
 ## 📥 Instalação
 
